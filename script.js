@@ -1,21 +1,18 @@
-const display = document.querySelector("#display");
-const buttons = document.querySelectorAll("button");
+const display = document.querySelector("#display");//refrence
+const buttons = document.querySelectorAll("button");//reference
 
-buttons.forEach((item) => {
-  item.onclick = () => {
-    if (item.id == "clear") {
+buttons.forEach((button) => {
+  button.onclick = () => {//for each button there is click listener
+    if (button.id == "clear") 
       display.innerText = "";
-    } else if (item.id == "backspace") {
+     else if (button.id == "backspace") {
       let string = display.innerText.toString();
       display.innerText = string.substr(0, string.length - 1);
-    } else if (display.innerText != "" && item.id == "equal") {
+    } else if ( button.id == "equal") 
       display.innerText = eval(display.innerText);
-    } else if (display.innerText == "" && item.id == "equal") {
-      display.innerText = "Empty!";
-       display.innerText = "";
-    } else {
-      display.innerText += item.id;
-    }
+      else 
+      display.innerText += button.id;
+    
   };
 });
 
